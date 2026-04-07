@@ -13,16 +13,15 @@ declare(strict_types=1);
 
 namespace MLS\Commit;
 
-interface UpdatePathInterface
+interface UpdatePathNodeInterface
 {
     /**
-     * The leaf node presented in the path (serialized).
+     * Public key for this path node (serialized public key bytes).
      */
-    public function getLeafNode(): string;
+    public function getPublicKey(): string;
 
     /**
-     * Array of UpdatePathNodeInterface.
-     * @return UpdatePathNodeInterface[]
+     * Encrypted path secret for this node (serialized bytes).
      */
-    public function getNodes(): array;
+    public function getEncryptedPathSecret(): string;
 }
