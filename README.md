@@ -6,6 +6,7 @@ Status
 
 - Interface-first: comprehensive RFC-shaped interfaces and registry enums implemented; no concrete cryptographic primitives included.
 - Goal: provide a complete set of PHP interfaces that mirror RFC 9420 concepts for downstream implementations and tests.
+
 Current status
 
 - Interfaces: comprehensive interface-only definitions for the major RFC 9420 concepts (groups, ratchet tree, messages, proposals, commits, credentials, crypto abstractions).
