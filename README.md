@@ -6,6 +6,12 @@ Status
 
 - Interfaces only — no concrete implementations yet.
 - Goal: provide a complete set of PHP interfaces that mirror RFC 9420 concepts for downstream implementations and tests.
+Current status
+
+- Interfaces: comprehensive interface-only definitions for the major RFC 9420 concepts (groups, ratchet tree, messages, proposals, commits, credentials, crypto abstractions).
+- Registry enums: added enum-style classes mirroring RFC tables and registries (Tables 4–7 and related): `CipherSuite`, `KEM`, `KDF`, `AEAD`, `HashAlgorithm`, `SignatureScheme`, `ExtensionType`, `ProposalType`, `CredentialType`, `EpochSecrets`, `SignatureLabels`, `PublicKeyEncryptionLabels`, `MessageWireFormat`, and `ContentType`.
+- Tests: a basic PHPUnit test (`tests/MLSInterfacesTest.php`) asserts presence of interfaces and method signatures; run locally with `./vendor/bin/phpunit`.
+- Implementations: no concrete cryptographic implementations included — those remain out of scope.
 
 Implemented (interface files) — ordered by RFC section
 
@@ -96,6 +102,8 @@ Notes
 
 - The project is interface-first; concrete implementations are intentionally out of scope for now.
 - Tests assert presence of core interfaces and method signatures (see `tests/MLSInterfacesTest.php`).
+ - Registry enums were added to reflect RFC 9420 numeric/label registries; see `src/MLS/Enums/` for details.
+ - Running the test suite may surface configuration or deprecation warnings depending on your environment (PHPUnit version, PHP version). Addressing deprecations and expanding test coverage are planned.
 
 RFC coverage
 
@@ -114,10 +122,10 @@ Registry details
 
 Roadmap
 
-1. Add KeyPackageBundle and EncryptedGroupSecrets interfaces.
-2. Provide minimal concrete stubs (HPKE, Signature) to run end-to-end tests.
-3. Expand tests to validate RFC section mapping and serialization formats.
-4. Implement reference implementations or adapters to libs (sodium, openmls bindings, etc.).
+1. Address PHPUnit deprecation(s) and stabilize CI runs.
+2. Expand tests to validate enum mappings, serialization formats, and contract behavior.
+3. Add minimal reference implementations or adapters for HPKE/signature primitives.
+4. Implement end-to-end examples that exercise the KeySchedule, Commit, and Welcome flows.
 
 Contributing
 
