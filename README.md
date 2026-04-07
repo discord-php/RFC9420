@@ -1,4 +1,4 @@
-PHP interfaces implementing RFC 9420 (Messaging Layer Security). This repository provides interface-only definitions for the main MLS abstractions (groups, ratchet tree, messages, proposals, commits, credentials, and crypto primitives) as a starting point for implementations.
+PHP interfaces implementing [RFC 9420](https://www.rfc-editor.org/rfc/rfc9420.html) (Messaging Layer Security). This repository provides interface-only definitions for the main MLS abstractions (groups, ratchet tree, messages, proposals, commits, credentials, and crypto primitives) as a starting point for implementations.
 
 Reference: https://www.rfc-editor.org/rfc/rfc9420.html
 
@@ -23,31 +23,39 @@ Implemented (interface files) — ordered by RFC section
  - [`src/MLS/Crypto/KeyScheduleInterface.php`](src/MLS/Crypto/KeyScheduleInterface.php) — RFC 9420: Key Schedule / Secret Tree ([Section 7](https://www.rfc-editor.org/rfc/rfc9420.html#section-7))
  - [`src/MLS/Export/ExporterInterface.php`](src/MLS/Export/ExporterInterface.php) — RFC 9420: Exporter ([Section 7](https://www.rfc-editor.org/rfc/rfc9420.html#section-7))
  - [`src/MLS/Handshake/KeyPackageInterface.php`](src/MLS/Handshake/KeyPackageInterface.php) — RFC 9420: KeyPackage ([Section 8](https://www.rfc-editor.org/rfc/rfc9420.html#section-8))
+ - [`src/MLS/Handshake/KeyPackageInterface.php`](src/MLS/Handshake/KeyPackageInterface.php) — RFC 9420: KeyPackage ([Section 8](https://www.rfc-editor.org/rfc/rfc9420.html#section-8))
+ - [`src/MLS/Handshake/KeyPackageBundleInterface.php`](src/MLS/Handshake/KeyPackageBundleInterface.php) — KeyPackageBundle ([Section 8.1](https://www.rfc-editor.org/rfc/rfc9420.html#section-8.1))
  - [`src/MLS/Transcript/TranscriptInterface.php`](src/MLS/Transcript/TranscriptInterface.php) — RFC 9420: Transcript Hashes ([Section 10](https://www.rfc-editor.org/rfc/rfc9420.html#section-10))
  - [`src/MLS/Welcome/WelcomeInterface.php`](src/MLS/Welcome/WelcomeInterface.php) — RFC 9420: Welcome ([Section 11](https://www.rfc-editor.org/rfc/rfc9420.html#section-11))
  - [`src/MLS/Welcome/EncryptedGroupSecretsInterface.php`](src/MLS/Welcome/EncryptedGroupSecretsInterface.php) — RFC 9420: Welcome ([Section 11](https://www.rfc-editor.org/rfc/rfc9420.html#section-11))
  - [`src/MLS/Group/GroupInterface.php`](src/MLS/Group/GroupInterface.php) — RFC 9420: Group Evolution ([Section 12](https://www.rfc-editor.org/rfc/rfc9420.html#section-12))
  - [`src/MLS/Group/GroupContextInterface.php`](src/MLS/Group/GroupContextInterface.php) — RFC 9420: Group Context / GroupInfo ([Section 12](https://www.rfc-editor.org/rfc/rfc9420.html#section-12))
  - [`src/MLS/Group/GroupInfoInterface.php`](src/MLS/Group/GroupInfoInterface.php) — RFC 9420: Group Context / GroupInfo ([Section 12](https://www.rfc-editor.org/rfc/rfc9420.html#section-12))
+ - [`src/MLS/Group/GroupMembershipInterface.php`](src/MLS/Group/GroupMembershipInterface.php) — Group membership helpers ([Section 12.4.3](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.4.3))
  - [`src/MLS/Proposal/ProposalInterface.php`](src/MLS/Proposal/ProposalInterface.php) — RFC 9420: Proposals ([Section 12.1](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.1))
  - [`src/MLS/Proposal/AddProposalInterface.php`](src/MLS/Proposal/AddProposalInterface.php) — RFC 9420: Add ([Section 12.1.1](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.1.1))
  - [`src/MLS/Proposal/UpdateProposalInterface.php`](src/MLS/Proposal/UpdateProposalInterface.php) — RFC 9420: Update ([Section 12.1.2](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.1.2))
  - [`src/MLS/Proposal/RemoveProposalInterface.php`](src/MLS/Proposal/RemoveProposalInterface.php) — RFC 9420: Remove ([Section 12.1.3](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.1.3))
  - [`src/MLS/Proposal/PreSharedKeyProposalInterface.php`](src/MLS/Proposal/PreSharedKeyProposalInterface.php) — RFC 9420: PreSharedKey ([Section 12.1.4](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.1.4))
+ - [`src/MLS/Proposal/ReInitProposalInterface.php`](src/MLS/Proposal/ReInitProposalInterface.php) — RFC 9420: ReInit ([Section 12.1.5](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.1.5))
+ - [`src/MLS/Proposal/ExternalInitProposalInterface.php`](src/MLS/Proposal/ExternalInitProposalInterface.php) — RFC 9420: ExternalInit ([Section 12.1.6](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.1.6))
+ - [`src/MLS/Proposal/GroupContextExtensionsProposalInterface.php`](src/MLS/Proposal/GroupContextExtensionsProposalInterface.php) — RFC 9420: GroupContextExtensions ([Section 12.1.7](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.1.7))
+ - [`src/MLS/Proposal/ExternalProposalInterface.php`](src/MLS/Proposal/ExternalProposalInterface.php) — RFC 9420: External Proposal ([Section 12.1.8](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.1.8))
+ - [`src/MLS/Proposal/ProposalListInterface.php`](src/MLS/Proposal/ProposalListInterface.php) — RFC 9420: Proposal List ([Section 12.2](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.2))
+ - [`src/MLS/Proposal/ProposalListValidatorInterface.php`](src/MLS/Proposal/ProposalListValidatorInterface.php) — RFC 9420: Proposal List Validation ([Section 12.2](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.2))
+ - [`src/MLS/Proposal/ProposalApplierInterface.php`](src/MLS/Proposal/ProposalApplierInterface.php) — RFC 9420: Applying Proposal Lists ([Section 12.3](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.3))
  - [`src/MLS/Commit/CommitInterface.php`](src/MLS/Commit/CommitInterface.php) — RFC 9420: Commit ([Section 12.4](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.4))
+ - [`src/MLS/Commit/CommitCreatorInterface.php`](src/MLS/Commit/CommitCreatorInterface.php) — RFC 9420: Creating a Commit ([Section 12.4.1](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.4.1))
+ - [`src/MLS/Commit/CommitProcessorInterface.php`](src/MLS/Commit/CommitProcessorInterface.php) — RFC 9420: Processing a Commit ([Section 12.4.2](https://www.rfc-editor.org/rfc/rfc9420.html#section-12.4.2))
  - [`src/MLS/Extensions/ExtensionInterface.php`](src/MLS/Extensions/ExtensionInterface.php) — RFC 9420: Extensions ([Section 13](https://www.rfc-editor.org/rfc/rfc9420.html#section-13))
 
-TODO (RFC sections without interfaces yet)
+Enums / identifiers
 
-- ReInit proposal (Section 12.1.5)
-- ExternalInit proposal (Section 12.1.6)
-- GroupContextExtensions proposal (Section 12.1.7)
-- External proposals (Section 12.1.8)
-- Proposal list validation (Section 12.2)
-- Applying a proposal list (Section 12.3)
-- Creating a Commit (Section 12.4.1)
-- Processing a Commit (Section 12.4.2)
-- Adding Members to the Group (Section 12.4.3)
+ - [`src/MLS/Enums/ProposalType.php`](src/MLS/Enums/ProposalType.php) — Proposal type identifiers (add/update/remove/etc.)
+ - [`src/MLS/Enums/MessageWireFormat.php`](src/MLS/Enums/MessageWireFormat.php) — Message wire-format identifiers (`plaintext` / `ciphertext`)
+ - [`src/MLS/Enums/ContentType.php`](src/MLS/Enums/ContentType.php) — Content-type identifiers used inside payloads
+
+All RFC sections listed in the original TODO have corresponding interface files and identifiers in this repository. See the `Implemented` list above for file-level cross-references to RFC sections.
 
 
 Quick start
