@@ -1,0 +1,9 @@
+.env
+composer.lock
+/vendor
+/linux
+/mac
+/windows
+.php-cs-fixer.cache
+phpunit.log
+/.phpunit.cache
