@@ -17,7 +17,7 @@ final class PublicKeyEncryptionLabels
         self::WELCOME => true,
     ];
 
-    private function __construct()
+    public function __construct()
     {
     }
 

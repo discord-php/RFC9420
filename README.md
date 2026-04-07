@@ -51,7 +51,13 @@ Implemented (interface files) — ordered by RFC section
 
 Enums / identifiers
 
+ - [`src/MLS/Enums/EpochSecrets.php`](src/MLS/Enums/EpochSecrets.php) — RFC 9420: Epoch-Derived Secrets ([Table 4](https://www.rfc-editor.org/rfc/rfc9420.html#table-4))
  - [`src/MLS/Enums/CipherSuite.php`](src/MLS/Enums/CipherSuite.php) — RFC 9420: Cipher Suites ([Table 6](https://www.rfc-editor.org/rfc/rfc9420.html#table-6) & [Table 7](https://www.rfc-editor.org/rfc/rfc9420.html#table-7))
+ - [`src/MLS/Enums/KEM.php`](src/MLS/Enums/KEM.php) — HPKE KEM identifiers ([Table 7](https://www.rfc-editor.org/rfc/rfc9420.html#table-7))
+ - [`src/MLS/Enums/KDF.php`](src/MLS/Enums/KDF.php) — KDF identifiers ([Table 7](https://www.rfc-editor.org/rfc/rfc9420.html#table-7))
+ - [`src/MLS/Enums/AEAD.php`](src/MLS/Enums/AEAD.php) — AEAD identifiers ([Table 7](https://www.rfc-editor.org/rfc/rfc9420.html#table-7))
+ - [`src/MLS/Enums/HashAlgorithm.php`](src/MLS/Enums/HashAlgorithm.php) — Hash algorithm identifiers ([Table 7](https://www.rfc-editor.org/rfc/rfc9420.html#table-7))
+ - [`src/MLS/Enums/SignatureScheme.php`](src/MLS/Enums/SignatureScheme.php) — Signature scheme identifiers ([Table 7](https://www.rfc-editor.org/rfc/rfc9420.html#table-7))
  - [`src/MLS/Enums/MessageWireFormat.php`](src/MLS/Enums/MessageWireFormat.php) — RFC 9420: MLS Wire Formats ([Table 8](https://www.rfc-editor.org/rfc/rfc9420.html#table-9))
  - [`src/MLS/Enums/ExtensionType.php`](src/MLS/Enums/ExtensionType.php) — RFC 9420: MLS Extension Types ([Table 9](https://www.rfc-editor.org/rfc/rfc9420.html#table-9))
  - [`src/MLS/Enums/ProposalType.php`](src/MLS/Enums/ProposalType.php) — RFC 9420: MLS Proposal Types ([Table 10](https://www.rfc-editor.org/rfc/rfc9420.html#table-9))
@@ -99,6 +105,12 @@ RFC coverage
 - Crypto: Cipher suite, KeySchedule, HPKE, and signature scheme abstractions provided; implementations required.
 - Extensions & Transcript: extension and transcript interfaces included for payloads and hash tracking.
  - RFC registries mirrored: wire formats, proposal types, extension types, credential types, signature labels, and public-key encryption labels are represented under `src/MLS/Enums/`.
+
+Registry details
+
+- **Epoch-derived secrets (Table 4)**: common labels used by the key schedule are mirrored in `src/MLS/Enums/EpochSecrets.php`. Labels include `"sender data"`, `"encryption"`, `"exporter"`, `"external"`, `"confirm"`, `"membership"`, `"resumption"`, and `"authentication"`. Each label maps to a derived secret name (for example, `"confirm"` → `confirmation_key`) and a short-purpose description.
+
+- **Cipher suites (Tables 6 & 7)**: the CipherSuite registry is represented in `src/MLS/Enums/CipherSuite.php`. It includes the initial MLS 1.0 suites (e.g. `MLS_128_DHKEMX25519_AES128GCM_SHA256_Ed25519`) and GREASE/private-use ranges. The mandatory-to-implement suite for MLS 1.0 is `MLS_128_DHKEMX25519_AES128GCM_SHA256_Ed25519`. Each suite exposes component mappings (KEM/KDF/AEAD/Hash/Signature) via helper accessors in the enum class.
 
 Roadmap
 

@@ -21,7 +21,7 @@ final class SignatureLabels
         self::GROUP_INFO_TBS => true,
     ];
 
-    private function __construct()
+    public function __construct()
     {
     }
 

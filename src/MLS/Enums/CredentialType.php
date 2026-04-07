@@ -59,7 +59,7 @@ final class CredentialType
         self::X509 => true,
     ];
 
-    private function __construct()
+    public function __construct()
     {
     }
 

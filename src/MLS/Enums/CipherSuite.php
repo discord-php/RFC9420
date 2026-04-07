@@ -144,7 +144,7 @@ final class CipherSuite
         ],
     ];
 
-    private function __construct()
+    public function __construct()
     {
     }
 

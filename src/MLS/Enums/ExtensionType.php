@@ -91,7 +91,7 @@ final class ExtensionType
         self::EXTERNAL_SENDERS => true,
     ];
 
-    private function __construct()
+    public function __construct()
     {
     }
 
