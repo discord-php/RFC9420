@@ -30,7 +30,7 @@ interface TreeInterface
     /**
      * Compute the path for a leaf index.
      *
-     * @param int $leafIndex
+     * @param  int                             $leafIndex
      * @return \MLS\Commit\UpdatePathInterface
      */
     public function computePath(int $leafIndex): UpdatePathInterface;
