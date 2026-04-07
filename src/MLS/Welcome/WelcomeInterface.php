@@ -19,7 +19,13 @@ interface WelcomeInterface
 {
     public function getGroupInfo(): GroupInfoInterface;
 
+    /**
+     * @return \MLS\Welcome\GroupSecretsInterface[]
+     */
     public function getSecrets(): array;
 
+    /**
+     * @return \MLS\Welcome\EncryptedGroupSecretsInterface[]
+     */
     public function getEncryptedGroupSecrets(): array;
 }

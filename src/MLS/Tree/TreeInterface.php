@@ -25,5 +25,11 @@ interface TreeInterface
 
     public function getParent(int $index): ?ParentNodeInterface;
 
+    /**
+     * Compute the path for a leaf index.
+     *
+     * @param int $leafIndex
+     * @return \MLS\Commit\UpdatePathNodeInterface[]
+     */
     public function computePath(int $leafIndex): array;
 }

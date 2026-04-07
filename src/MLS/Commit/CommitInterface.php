@@ -19,6 +19,9 @@ interface CommitInterface
 {
     public function getSender(): SenderInterface;
 
+    /**
+     * @return \MLS\Proposal\ProposalInterface[]
+     */
     public function getProposals(): array;
 
     public function getPath(): ?array;

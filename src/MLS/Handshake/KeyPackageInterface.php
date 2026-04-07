@@ -25,6 +25,9 @@ interface KeyPackageInterface
 
     public function getCredential(): CredentialInterface;
 
+    /**
+     * @return array<int,\MLS\Extensions\ExtensionInterface>
+     */
     public function getExtensions(): array;
 
     public function verify(): bool;

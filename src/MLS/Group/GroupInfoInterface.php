@@ -25,6 +25,9 @@ interface GroupInfoInterface
 
     public function getConfirmedTranscriptHash(): string;
 
+    /**
+     * @return \MLS\Extensions\ExtensionInterface[]
+     */
     public function getExtensions(): array;
 
     public function getSigner(): string;
