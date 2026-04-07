@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace MLS\Tree;
 
+use MLS\Commit\UpdatePathInterface;
+
 interface TreeInterface
 {
     public function getLeafCount(): int;
@@ -29,7 +31,7 @@ interface TreeInterface
      * Compute the path for a leaf index.
      *
      * @param int $leafIndex
-     * @return \MLS\Commit\UpdatePathNodeInterface[]
+     * @return \MLS\Commit\UpdatePathInterface
      */
-    public function computePath(int $leafIndex): array;
+    public function computePath(int $leafIndex): UpdatePathInterface;
 }

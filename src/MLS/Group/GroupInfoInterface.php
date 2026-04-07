@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace MLS\Group;
 
+use MLS\Credentials\CredentialInterface;
 use MLS\Tree\TreeInterface;
 
 interface GroupInfoInterface
@@ -30,7 +31,7 @@ interface GroupInfoInterface
      */
     public function getExtensions(): array;
 
-    public function getSigner(): string;
+    public function getSigner(): CredentialInterface;
 
     public function verifySignature(string $signature): bool;
 }

@@ -13,15 +13,17 @@ declare(strict_types=1);
 
 namespace MLS\Group;
 
+use MLS\Handshake\KeyPackageBundleInterface;
+
 interface GroupMembershipInterface
 {
     /**
-     * Add members to the group. Returns an array of proposal objects or identifiers to be committed.
+     * Add members to the group. Accepts a KeyPackage bundle.
      *
-     * @param  array            $keyPackages Array of KeyPackageInterface or raw key package representations
+     * @param  \MLS\Handshake\KeyPackageBundleInterface $bundle
      * @return array<int,mixed>
      */
-    public function addMembers(array $keyPackages): array;
+    public function addMembers(KeyPackageBundleInterface $bundle): array;
 
     /**
      * Remove members by identity or index. Returns proposals or identifiers.

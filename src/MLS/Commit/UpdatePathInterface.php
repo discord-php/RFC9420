@@ -13,12 +13,14 @@ declare(strict_types=1);
 
 namespace MLS\Commit;
 
+use MLS\Tree\LeafNodeInterface;
+
 interface UpdatePathInterface
 {
     /**
      * The leaf node presented in the path (serialized).
      */
-    public function getLeafNode(): string;
+    public function getLeafNode(): LeafNodeInterface;
 
     /**
      * Array of UpdatePathNodeInterface.

@@ -18,7 +18,7 @@ use MLS\Group\GroupInterface;
 
 interface MLSInterface
 {
-    public function createGroup(string $groupId, CipherSuiteInterface $ciphers): Group\GroupInterface;
+    public function createGroup(string $groupId, CipherSuiteInterface $ciphers): GroupInterface;
 
     public function loadGroup(string $groupId): ?GroupInterface;
 

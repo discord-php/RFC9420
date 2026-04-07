@@ -17,6 +17,7 @@ use MLS\Commit\CommitInterface;
 use MLS\Crypto\CipherSuiteInterface;
 use MLS\Message\MLSMessageInterface;
 use MLS\Proposal\ProposalInterface;
+use MLS\Proposal\ProposalListInterface;
 
 interface GroupInterface
 {
@@ -30,7 +31,7 @@ interface GroupInterface
 
     public function removeMember(string $identity): ProposalInterface;
 
-    public function commit(array $proposals): CommitInterface;
+    public function commit(ProposalListInterface $proposals): CommitInterface;
 
     public function applyCommit(CommitInterface $commit): void;
 

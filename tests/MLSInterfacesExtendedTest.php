@@ -63,7 +63,7 @@ final class MLSInterfacesExtendedTest extends TestCase
         $t = new ReflectionClass('MLS\\Tree\\TreeInterface');
         $this->assertTrue($t->hasMethod('computePath'));
         $doc = $t->getMethod('computePath')->getDocComment();
-        $this->assertStringContainsString('UpdatePathNodeInterface', (string) $doc);
+        $this->assertStringContainsString('UpdatePathInterface', (string) $doc);
     }
 
     public function testGroupInfoExtensionsDoc(): void

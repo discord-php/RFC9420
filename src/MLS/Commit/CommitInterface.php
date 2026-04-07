@@ -24,7 +24,7 @@ interface CommitInterface
      */
     public function getProposals(): array;
 
-    public function getPath(): ?array;
+    public function getPath(): ?UpdatePathInterface;
 
     public function getSignature(): string;
 }

@@ -22,4 +22,9 @@ interface CredentialInterface
     public function getPublicKey(): string;
 
     public function verifySignature(string $message, string $signature): bool;
+
+    /**
+     * Provide a string representation suitable for logging or use where a string is required.
+     */
+    public function __toString(): string;
 }
