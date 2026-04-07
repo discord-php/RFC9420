@@ -1,5 +1,3 @@
-php-mls-rfc9420-interfaces
-
 PHP interfaces implementing RFC 9420 (Messaging Layer Security). This repository provides interface-only definitions for the main MLS abstractions (groups, ratchet tree, messages, proposals, commits, credentials, and crypto primitives) as a starting point for implementations.
 
 Reference: https://www.rfc-editor.org/rfc/rfc9420.html
