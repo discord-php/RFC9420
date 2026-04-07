@@ -14,6 +14,19 @@ Current status
 - Implementations: no concrete cryptographic implementations included — those remain out of scope.
  - Recent API changes: `MLSPlaintextInterface::getSender()` and `FramedContentInterface::getSender()` return a `SenderInterface` (typed sender union). `KeyScheduleInterface::init()` now accepts an ordered array of PSKs (`array $psks`) to reflect RFC PSK chaining semantics. `CommitInterface::getSender()` and `ProposalInterface::getSender()` now also return `SenderInterface`.
 
+**DTOs & Adapters (examples/tests)**
+
+- `src/MLS/Group/BasicGroup.php` — simple in-memory `Group` adapter that creates proposals, builds commits, and applies them to maintain an internal members list; paired with `BasicGroupContext` and `BasicGroupInfo` DTOs.
+- `src/MLS/Crypto/BasicKeySchedule.php` — illustrative key-schedule adapter that accepts PSKs and derives epoch secrets used by tests (not cryptographically secure).
+- `src/MLS/Crypto/BasicHPKE.php` — minimal envelope helper providing `seal()` and `open()` helpers used by tests to simulate HPKE behavior.
+- `src/MLS/Credentials/BasicCredential.php` — credential DTO storing `type`, `identity`, and `publicKey`, implements `__toString()` and a simple `verifySignature()` stub for tests.
+- `src/MLS/Handshake/BasicKeyPackage.php` — lightweight `KeyPackage` DTO containing an init key material, cipher suite, and credential reference for examples.
+- `src/MLS/Handshake/KeyPackageBundle.php` — convenience wrapper around `KeyPackage` objects with simple serialization/verification helpers used in tests.
+- `src/MLS/Proposal/BasicProposal.php` — proposal DTO capturing a `type`, `sender`, and payload; used with `ProposalList.php` which provides collection and basic validation helpers.
+- `src/MLS/Commit/BasicCommit.php` — commit DTO that packages proposals (and optionally an update path) produced by `BasicGroup::commit()`.
+- `src/MLS/Tree/LeafNode.php`, `src/MLS/Commit/UpdatePath.php`, `src/MLS/Commit/UpdatePathNode.php` — small DTOs representing leaf nodes and update-path structures used by commit/update tests.
+
+These adapters are intentionally minimal and intended for tests and examples only — they are not production-grade cryptographic implementations.
 Implemented (interface files) — ordered by RFC section
 
  - [`src/MLS/MLSInterface.php`](src/MLS/MLSInterface.php) — RFC 9420: Protocol Overview ([Section 3](https://www.rfc-editor.org/rfc/rfc9420.html#section-3))
