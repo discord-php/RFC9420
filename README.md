@@ -4,7 +4,7 @@ Reference: https://www.rfc-editor.org/rfc/rfc9420.html
 
 Status
 
-- Interfaces only — no concrete implementations yet.
+- Interface-first: comprehensive RFC-shaped interfaces and registry enums implemented; no concrete cryptographic primitives included.
 - Goal: provide a complete set of PHP interfaces that mirror RFC 9420 concepts for downstream implementations and tests.
 Current status
 
@@ -12,6 +12,7 @@ Current status
 - Registry enums: added enum-style classes mirroring RFC tables and registries (Tables 4–7 and related): `CipherSuite`, `KEM`, `KDF`, `AEAD`, `HashAlgorithm`, `SignatureScheme`, `ExtensionType`, `ProposalType`, `CredentialType`, `EpochSecrets`, `SignatureLabels`, `PublicKeyEncryptionLabels`, `MessageWireFormat`, and `ContentType`.
 - Tests: a basic PHPUnit test (`tests/MLSInterfacesTest.php`) asserts presence of interfaces and method signatures; run locally with `./vendor/bin/phpunit`.
 - Implementations: no concrete cryptographic implementations included — those remain out of scope.
+ - Recent API changes: `MLSPlaintextInterface::getSender()` and `FramedContentInterface::getSender()` return a `SenderInterface` (typed sender union). `KeyScheduleInterface::init()` now accepts an ordered array of PSKs (`array $psks`) to reflect RFC PSK chaining semantics. `CommitInterface::getSender()` and `ProposalInterface::getSender()` now also return `SenderInterface`.
 
 Implemented (interface files) — ordered by RFC section
 
@@ -126,6 +127,8 @@ Roadmap
 2. Expand tests to validate enum mappings, serialization formats, and contract behavior.
 3. Add minimal reference implementations or adapters for HPKE/signature primitives.
 4. Implement end-to-end examples that exercise the KeySchedule, Commit, and Welcome flows.
+
+If you'd like, I can add a short example showing how to construct a `SenderInterface` instance value (as a simple DTO) for use with these interfaces — or scaffold minimal reference implementations for `KeySchedule` and `HPKE` to exercise PSK chaining and welcome creation.
 
 Contributing
 

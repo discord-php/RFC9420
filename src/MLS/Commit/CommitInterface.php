@@ -13,9 +13,11 @@ declare(strict_types=1);
 
 namespace MLS\Commit;
 
+use MLS\Message\SenderInterface;
+
 interface CommitInterface
 {
-    public function getSender(): string;
+    public function getSender(): SenderInterface;
 
     public function getProposals(): array;
 

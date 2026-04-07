@@ -15,7 +15,12 @@ namespace MLS\Crypto;
 
 interface KeyScheduleInterface
 {
-    public function init(string $psk, CipherSuiteInterface $suite): void;
+    /**
+     * Initialize the key schedule.
+     *
+     * @param string[] $psks Ordered list of PSKs (may be empty)
+     */
+    public function init(array $psks, CipherSuiteInterface $suite): void;
 
     public function deriveWelcomeSecret(string $epochSecret): string;
 

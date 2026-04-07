@@ -11,14 +11,18 @@ declare(strict_types=1);
  * with this source code in the LICENSE.md file.
  */
 
-namespace MLS\Proposal;
+namespace MLS\Commit;
 
-interface GroupContextExtensionsProposalInterface extends ProposalInterface
+interface UpdatePathInterface
 {
     /**
-     * Return extensions to be merged into the GroupContext.
-     *
-     * @return array<int,mixed>
+     * The leaf node presented in the path (serialized).
      */
-    public function getGroupContextExtensions(): array;
+    public function getLeafNode(): string;
+
+    /**
+     * Array of UpdatePathNodeInterface.
+     * @return UpdatePathNodeInterface[]
+     */
+    public function getNodes(): array;
 }

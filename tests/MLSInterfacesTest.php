@@ -40,5 +40,29 @@ final class MLSInterfacesTest extends TestCase
                 $this->assertTrue($ref->hasMethod($method), "Interface {$interface} must declare method {$method}");
             }
         }
+
+        // Specific type assertions introduced by recent API changes
+        $ksRef = new ReflectionClass('MLS\\Crypto\\KeyScheduleInterface');
+        $this->assertTrue($ksRef->hasMethod('init'), 'KeyScheduleInterface must declare init');
+        $init = $ksRef->getMethod('init');
+        $params = $init->getParameters();
+        $this->assertGreaterThanOrEqual(1, count($params), 'init must have at least one parameter');
+        $this->assertTrue($params[0]->hasType(), 'init first parameter must be typed');
+        $this->assertEquals('array', $params[0]->getType()->getName(), 'KeyScheduleInterface::init first parameter should be typed as array');
+
+        $senderTargets = [
+            'MLS\\Message\\MLSPlaintextInterface',
+            'MLS\\Proposal\\ProposalInterface',
+            'MLS\\Commit\\CommitInterface',
+        ];
+
+        foreach ($senderTargets as $iface) {
+            $this->assertTrue(interface_exists($iface, true), "Interface {$iface} should exist for sender checks");
+            $r = new ReflectionClass($iface);
+            $this->assertTrue($r->hasMethod('getSender'), "Interface {$iface} must declare method getSender");
+            $m = $r->getMethod('getSender');
+            $this->assertTrue($m->hasReturnType(), "getSender on {$iface} should have a return type");
+            $this->assertEquals('MLS\\Message\\SenderInterface', $m->getReturnType()->getName(), "getSender on {$iface} must return MLS\\Message\\SenderInterface");
+        }
     }
 }

@@ -11,14 +11,13 @@ declare(strict_types=1);
  * with this source code in the LICENSE.md file.
  */
 
-namespace MLS\Proposal;
+namespace MLS\Welcome;
 
-interface GroupContextExtensionsProposalInterface extends ProposalInterface
+interface GroupSecretsInterface
 {
-    /**
-     * Return extensions to be merged into the GroupContext.
-     *
-     * @return array<int,mixed>
-     */
-    public function getGroupContextExtensions(): array;
+    public function getJoinerSecret(): string;
+
+    public function getPathSecret(): ?string;
+
+    public function getPsks(): array;
 }

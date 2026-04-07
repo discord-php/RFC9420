@@ -13,13 +13,11 @@ declare(strict_types=1);
 
 namespace MLS\Message;
 
-use MLS\Credentials\CredentialInterface;
-
-interface MLSPlaintextInterface
+interface FramedContentInterface
 {
-    public function getGroupId(): string;
+    public function getVersion(): int;
 
-    public function getEpoch(): int;
+    public function getWireFormat(): int;
 
     public function getSender(): SenderInterface;
 
@@ -27,7 +25,5 @@ interface MLSPlaintextInterface
 
     public function getContent(): mixed;
 
-    public function getSignature(): string;
-
-    public function verify(CredentialInterface $cred): bool;
+    public function getContentType(): int;
 }

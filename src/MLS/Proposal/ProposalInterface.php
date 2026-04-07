@@ -13,11 +13,13 @@ declare(strict_types=1);
 
 namespace MLS\Proposal;
 
+use MLS\Message\SenderInterface;
+
 interface ProposalInterface
 {
     public function getType(): string;
 
-    public function getSender(): string;
+    public function getSender(): SenderInterface;
 
     public function getProposal(): array;
 }
