@@ -51,6 +51,7 @@ Implemented (interface files) — ordered by RFC section
 
 Enums / identifiers
 
+ - [`src/MLS/Enums/CipherSuite.php`](src/MLS/Enums/CipherSuite.php) — RFC 9420: Cipher Suites ([Table 6](https://www.rfc-editor.org/rfc/rfc9420.html#table-6) & [Table 7](https://www.rfc-editor.org/rfc/rfc9420.html#table-7))
  - [`src/MLS/Enums/MessageWireFormat.php`](src/MLS/Enums/MessageWireFormat.php) — RFC 9420: MLS Wire Formats ([Table 8](https://www.rfc-editor.org/rfc/rfc9420.html#table-9))
  - [`src/MLS/Enums/ExtensionType.php`](src/MLS/Enums/ExtensionType.php) — RFC 9420: MLS Extension Types ([Table 9](https://www.rfc-editor.org/rfc/rfc9420.html#table-9))
  - [`src/MLS/Enums/ProposalType.php`](src/MLS/Enums/ProposalType.php) — RFC 9420: MLS Proposal Types ([Table 10](https://www.rfc-editor.org/rfc/rfc9420.html#table-9))

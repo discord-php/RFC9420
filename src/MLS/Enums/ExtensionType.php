@@ -36,7 +36,7 @@ final class ExtensionType
     public const PRIVATE_USE_START = 0xF000;
     public const PRIVATE_USE_END = 0xFFFF;
 
-    private const NAME_MAP = [
+    protected const NAME_MAP = [
         self::RESERVED => 'reserved',
         self::APPLICATION_ID => 'application_id',
         self::RATCHET_TREE => 'ratchet_tree',
@@ -60,7 +60,7 @@ final class ExtensionType
         self::GREASE_EAEA => 'grease_eaea',
     ];
 
-    private const MESSAGE_MAP = [
+    protected const MESSAGE_MAP = [
         self::APPLICATION_ID => ['LN'],
         self::RATCHET_TREE => ['GI'],
         self::REQUIRED_CAPABILITIES => ['GC'],
@@ -83,7 +83,7 @@ final class ExtensionType
         self::GREASE_EAEA => ['KP','GI','LN'],
     ];
 
-    private const RECOMMENDED = [
+    protected const RECOMMENDED = [
         self::APPLICATION_ID => true,
         self::RATCHET_TREE => true,
         self::REQUIRED_CAPABILITIES => true,

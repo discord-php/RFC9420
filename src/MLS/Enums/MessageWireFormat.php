@@ -12,18 +12,18 @@ final class MessageWireFormat
 {
     public const RESERVED = 0x0000;
     public const MLS_PUBLIC_MESSAGE = 0x0001;
-    public const MLS_protected_MESSAGE = 0x0002;
+    public const MLS_PRIVATE_MESSAGE = 0x0002;
     public const MLS_WELCOME = 0x0003;
     public const MLS_GROUP_INFO = 0x0004;
     public const MLS_KEY_PACKAGE = 0x0005;
 
-    public const protected_USE_START = 0xF000;
-    public const protected_USE_END = 0xFFFF;
+    public const PRIVATE_USE_START = 0xF000;
+    public const PRIVATE_USE_END = 0xFFFF;
 
     protected const NAME_MAP = [
         self::RESERVED => 'reserved',
         self::MLS_PUBLIC_MESSAGE => 'mls_public_message',
-        self::MLS_protected_MESSAGE => 'mls_protected_message',
+        self::MLS_PRIVATE_MESSAGE => 'mls_private_message',
         self::MLS_WELCOME => 'mls_welcome',
         self::MLS_GROUP_INFO => 'mls_group_info',
         self::MLS_KEY_PACKAGE => 'mls_key_package',
@@ -31,7 +31,7 @@ final class MessageWireFormat
 
     protected const RECOMMENDED = [
         self::MLS_PUBLIC_MESSAGE => true,
-        self::MLS_protected_MESSAGE => true,
+        self::MLS_PRIVATE_MESSAGE => true,
         self::MLS_WELCOME => true,
         self::MLS_GROUP_INFO => true,
         self::MLS_KEY_PACKAGE => true,
@@ -47,8 +47,8 @@ final class MessageWireFormat
             return self::NAME_MAP[$value];
         }
 
-        if ($value >= self::protected_USE_START && $value <= self::protected_USE_END) {
-            return 'protected_use';
+        if ($value >= self::PRIVATE_USE_START && $value <= self::PRIVATE_USE_END) {
+            return 'private_use';
         }
 
         return null;
@@ -63,8 +63,8 @@ final class MessageWireFormat
         return self::RECOMMENDED[$value] ?? null;
     }
 
-    public static function isprotectedUse(int $value): bool
+    public static function isPrivateUse(int $value): bool
     {
-        return $value >= self::protected_USE_START && $value <= self::protected_USE_END;
+        return $value >= self::PRIVATE_USE_START && $value <= self::PRIVATE_USE_END;
     }
 }

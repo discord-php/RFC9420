@@ -12,7 +12,7 @@ final class PublicKeyEncryptionLabels
     public const UPDATE_PATH_NODE = 'UpdatePathNode';
     public const WELCOME = 'Welcome';
 
-    private const RECOMMENDED = [
+    protected const RECOMMENDED = [
         self::UPDATE_PATH_NODE => true,
         self::WELCOME => true,
     ];

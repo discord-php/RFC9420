@@ -14,7 +14,7 @@ final class SignatureLabels
     public const KEY_PACKAGE_TBS = 'KeyPackageTBS';
     public const GROUP_INFO_TBS = 'GroupInfoTBS';
 
-    private const RECOMMENDED = [
+    protected const RECOMMENDED = [
         self::FRAMED_CONTENT_TBS => true,
         self::LEAF_NODE_TBS => true,
         self::KEY_PACKAGE_TBS => true,

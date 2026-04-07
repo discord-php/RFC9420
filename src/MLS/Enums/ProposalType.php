@@ -37,7 +37,7 @@ final class ProposalType
     public const GREASE_DADA = 0xDADA;
     public const GREASE_EAEA = 0xEAEA;
 
-    // Private use range
+    // protected use range
     public const PRIVATE_USE_START = 0xF000;
     public const PRIVATE_USE_END = 0xFFFF;
 
@@ -71,7 +71,7 @@ final class ProposalType
      * Metadata per proposal type: [recommended(bool), external(?bool), pathRequired(?bool)]
      * Where "?bool" can be null when RFC marks '-' (not applicable/unspecified).
      */
-    private const META = [
+    protected const META = [
         self::RESERVED => [false, null, null],
         self::ADD => [true, true, false],
         self::UPDATE => [true, false, true],

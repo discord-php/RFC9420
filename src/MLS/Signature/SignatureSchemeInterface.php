@@ -17,7 +17,7 @@ interface SignatureSchemeInterface
 {
     public function getId(): int;
 
-    public function sign(string $message, string $privateKey): string;
+    public function sign(string $message, string $protectedKey): string;
 
     public function verify(string $message, string $signature, string $publicKey): bool;
 }

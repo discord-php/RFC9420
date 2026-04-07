@@ -33,7 +33,7 @@ final class CredentialType
     public const PRIVATE_USE_START = 0xF000;
     public const PRIVATE_USE_END = 0xFFFF;
 
-    private const NAME_MAP = [
+    protected const NAME_MAP = [
         self::RESERVED => 'reserved',
         self::BASIC => 'basic',
         self::X509 => 'x509',
@@ -54,7 +54,7 @@ final class CredentialType
         self::GREASE_EAEA => 'grease_eaea',
     ];
 
-    private const RECOMMENDED = [
+    protected const RECOMMENDED = [
         self::BASIC => true,
         self::X509 => true,
     ];
