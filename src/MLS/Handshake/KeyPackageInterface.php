@@ -14,12 +14,13 @@ declare(strict_types=1);
 namespace MLS\Handshake;
 
 use MLS\Credentials\CredentialInterface;
+use MLS\Crypto\CipherSuiteInterface;
 
 interface KeyPackageInterface
 {
     public function getProtocolVersion(): int;
 
-    public function getCipherSuite(): int;
+    public function getCipherSuite(): CipherSuiteInterface;
 
     public function getInitKey(): string;
 
