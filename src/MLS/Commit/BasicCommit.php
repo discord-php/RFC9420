@@ -17,10 +17,10 @@ use MLS\Message\SenderInterface;
 
 class BasicCommit implements CommitInterface
 {
-    private SenderInterface $sender;
+    protected SenderInterface $sender;
     /** @var \MLS\Proposal\ProposalInterface[] */
-    private array $proposals;
-    private ?UpdatePathInterface $path;
+    protected array $proposals;
+    protected ?UpdatePathInterface $path;
 
     /** @param \MLS\Proposal\ProposalInterface[] $proposals */
     public function __construct(SenderInterface $sender, array $proposals = [], ?UpdatePathInterface $path = null)

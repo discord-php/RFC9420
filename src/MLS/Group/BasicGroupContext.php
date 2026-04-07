@@ -15,11 +15,11 @@ namespace MLS\Group;
 
 class BasicGroupContext implements GroupContextInterface
 {
-    private string $groupId;
-    private int $epoch;
-    private string $treeHash;
-    private string $cth;
-    private array $extensions;
+    protected string $groupId;
+    protected int $epoch;
+    protected string $treeHash;
+    protected string $cth;
+    protected array $extensions;
 
     public function __construct(string $groupId, int $epoch, string $treeHash, string $cth, array $extensions = [])
     {

@@ -15,8 +15,8 @@ namespace MLS\Crypto;
 
 class BasicKeySchedule implements KeyScheduleInterface
 {
-    private array $psks = [];
-    private CipherSuiteInterface $suite;
+    protected array $psks = [];
+    protected CipherSuiteInterface $suite;
 
     public function init(array $psks, CipherSuiteInterface $suite): void
     {
@@ -45,7 +45,7 @@ class BasicKeySchedule implements KeyScheduleInterface
         return $this->hkdf($label, implode('|', $this->psks), $length);
     }
 
-    private function hkdf(string $label, string $ikm, int $length = 32): string
+    protected function hkdf(string $label, string $ikm, int $length = 32): string
     {
         // Use SHA-256 HKDF via built-in helper if available
         if (function_exists('hash_hkdf')) {

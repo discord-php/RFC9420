@@ -25,11 +25,11 @@ use MLS\Proposal\ProposalInterface;
 
 class BasicGroup implements GroupInterface
 {
-    private string $groupId;
-    private int $epoch = 0;
-    private BasicGroupContext $context;
-    private array $members = [];
-    private BasicCipherSuite $suite;
+    protected string $groupId;
+    protected int $epoch = 0;
+    protected BasicGroupContext $context;
+    protected array $members = [];
+    protected BasicCipherSuite $suite;
 
     public function __construct(string $groupId, ?BasicGroupContext $context = null)
     {
