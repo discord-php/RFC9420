@@ -51,9 +51,12 @@ Implemented (interface files) — ordered by RFC section
 
 Enums / identifiers
 
- - [`src/MLS/Enums/ProposalType.php`](src/MLS/Enums/ProposalType.php) — Proposal type identifiers (add/update/remove/etc.)
- - [`src/MLS/Enums/MessageWireFormat.php`](src/MLS/Enums/MessageWireFormat.php) — Message wire-format identifiers (`plaintext` / `ciphertext`)
- - [`src/MLS/Enums/ContentType.php`](src/MLS/Enums/ContentType.php) — Content-type identifiers used inside payloads
+ - [`src/MLS/Enums/MessageWireFormat.php`](src/MLS/Enums/MessageWireFormat.php) — RFC 9420: MLS Wire Formats ([Table 8](https://www.rfc-editor.org/rfc/rfc9420.html#table-9))
+ - [`src/MLS/Enums/ExtensionType.php`](src/MLS/Enums/ExtensionType.php) — RFC 9420: MLS Extension Types ([Table 9](https://www.rfc-editor.org/rfc/rfc9420.html#table-9))
+ - [`src/MLS/Enums/ProposalType.php`](src/MLS/Enums/ProposalType.php) — RFC 9420: MLS Proposal Types ([Table 10](https://www.rfc-editor.org/rfc/rfc9420.html#table-9))
+ - [`src/MLS/Enums/CredentialType.php`](src/MLS/Enums/CredentialType.php) — RFC 9420: MLS Credential Types ([Table 11](https://www.rfc-editor.org/rfc/rfc9420.html#table-11))
+ - [`src/MLS/Enums/SignatureLabels.php`](src/MLS/Enums/SignatureLabels.php) — RFC 9420: MLS Signature Labels ([Table 12](https://www.rfc-editor.org/rfc/rfc9420.html#table-12))
+ - [`src/MLS/Enums/PublicKeyEncryptionLabels.php`](src/MLS/Enums/PublicKeyEncryptionLabels.php) — RFC 9420: MLS Public Key Encryption Labels ([Table 13](https://www.rfc-editor.org/rfc/rfc9420.html#table-13))
 
 All RFC sections listed in the original TODO have corresponding interface files and identifiers in this repository. See the `Implemented` list above for file-level cross-references to RFC sections.
 
@@ -94,6 +97,7 @@ RFC coverage
 - Handshake: `KeyPackage` and `Welcome` interfaces added; key package bundles and encrypted secrets not implemented.
 - Crypto: Cipher suite, KeySchedule, HPKE, and signature scheme abstractions provided; implementations required.
 - Extensions & Transcript: extension and transcript interfaces included for payloads and hash tracking.
+ - RFC registries mirrored: wire formats, proposal types, extension types, credential types, signature labels, and public-key encryption labels are represented under `src/MLS/Enums/`.
 
 Roadmap
 
