@@ -142,8 +142,6 @@ Roadmap
 3. Add minimal reference implementations or adapters for HPKE/signature primitives.
 4. Implement end-to-end examples that exercise the KeySchedule, Commit, and Welcome flows.
 
-If you'd like, I can add a short example showing how to construct a `SenderInterface` instance value (as a simple DTO) for use with these interfaces — or scaffold minimal reference implementations for `KeySchedule` and `HPKE` to exercise PSK chaining and welcome creation.
-
 Contributing
 
 - Add concrete implementations under `src/MLS/` and tests under `tests/`.
